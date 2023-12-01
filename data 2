@@ -1,0 +1,37 @@
+<?php
+
+class Database {
+    public $pdo;
+
+    public function __construct($db = "kpn", $host = "localhost", $user = "root", $pass = "") {
+        try {
+            $this->pdo = new PDO("mysql:host=$host; dbname=$db", $user, $pass);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "Connected to database $db <br>";
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+    }
+    public function selectData($id) {
+    }
+    public function updateData($id, $nieuweData) {
+    }
+    public function deleteData($id) {
+    }
+    public function sluitVerbinding() {
+        $this->verbinding->close();
+    }
+
+
+
+
+
+
+
+<?php
+require_once 'db.php';
+
+$database = new Database();
+
+$database->Datatoevoegen("Tom Schuur", "Tomschuur@gmail.com", "06555555");
+?>
